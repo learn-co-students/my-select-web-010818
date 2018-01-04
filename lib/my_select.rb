@@ -1,11 +1,16 @@
+require "pry"
+
 def my_select(collection)
  if block_given?
    new_collection = []
    i = 0 
-   while i < collection.length 
-    if yield(collection[i]) == true
+   while i < collection.length
+  binding.pry
+    i += 1
+    if yield(collection[i]) 
+      binding.pry
      new_collection << collection[i]
-     i += 1 
+      
     end
    end
    new_collection
@@ -13,4 +18,4 @@ def my_select(collection)
    puts "No block was given!"
  end
 end
-
+ 
